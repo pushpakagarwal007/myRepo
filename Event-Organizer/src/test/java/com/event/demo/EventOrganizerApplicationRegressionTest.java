@@ -1,18 +1,20 @@
 package com.event.demo;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 import com.event.beans.Event;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @ContextConfiguration
-public class EventOrganizerApplicationUnitTests extends AbstractTest {
-
+public class EventOrganizerApplicationRegressionTest extends AbstractTest {
+	
 	@Override
 	@Before
 	public void setUp() {
@@ -136,4 +138,5 @@ public class EventOrganizerApplicationUnitTests extends AbstractTest {
 		int status = mvcResult.getResponse().getStatus();
 		assertEquals(202, status);
 	}
+
 }

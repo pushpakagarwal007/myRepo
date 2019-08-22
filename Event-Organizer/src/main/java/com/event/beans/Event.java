@@ -2,7 +2,6 @@ package com.event.beans;
 
 import lombok.Data;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Data
 @Entity
@@ -15,15 +14,19 @@ public class Event {
 		OTHERS
 	}
 
-	private @Id Long id;
+	private Long id = 1l;
 	private String title;
 	private String description;
 	private String startDateTime;
 	private String endDateTime;
 	private String category;
 	
-	public void setId(Long id) {
-		this.id = id;
+	public Long generateId() {
+		return ++id;
+	}
+	
+	public void setId(Long _id) {
+		id = _id;
 	}
 
 	public void setTitle(String title) {

@@ -34,10 +34,10 @@ public class CreateEvent {
 			Event stdn = eventRecords.get(i);
 			if (stdn.getId().equals(event.getId())) {
 				eventRecords.set(i, event);// update the new record
-				return "Event is updated successsfully";
+				return "SUCCESS";
 			}
 		}
-		return "Update un-successful";
+		return "ERROR";
 	}
 
 	public String deleteEvent(long eventId) {
@@ -45,10 +45,10 @@ public class CreateEvent {
 			Event event = eventRecords.get(i);
 			if (event.getId().equals(eventId)) {
 				eventRecords.remove(i);// delete the new record
-				return "Event is deleted successsfully";
+				return "SUCCESS";
 			}
 		}
-		return "Delete un-successful";
+		return "ERROR";
 	}
 	
 	public String sortEvents(String type, String order) {
@@ -80,10 +80,12 @@ public class CreateEvent {
 		});
 		if (order.equalsIgnoreCase("desc"))
 			Collections.reverse(eventRecords);
-		return "Events are sorted successsfully";
+		return "SUCCESS";
 	}
 
 	public List<Event> getEventRecords() {
+		if(eventRecords.size() == 0)
+			return null;
 		return eventRecords;
 	}
 
